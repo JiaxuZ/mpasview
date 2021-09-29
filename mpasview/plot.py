@@ -33,6 +33,7 @@ def plot_basemap(
             'TropicalPacific': _plot_basemap_tropicalpacific,
             'TropicalPacificSmall': _plot_basemap_tropicalpacific_small,
             'TropicalAtlantic': _plot_basemap_tropicalatlantic,
+            'ChukchiSea': _plot_basemap_chukchisea,
             'Custom': _plot_basemap_region,
             }
     if region in switcher.keys():
@@ -127,6 +128,22 @@ def _plot_basemap_labsea(axis=None):
                              projection=ccrs.Orthographic(central_longitude=316.0, central_latitude=55), \
                              xlocator=np.linspace(-80,-30,6), \
                              ylocator=np.linspace(40,65,6))
+    # workaround to turn off all the right and top labels
+    gl = m.gridlines(draw_labels=False)
+    gl.xlocator = mticker.FixedLocator([-20, -10])
+    gl.ylocator = mticker.FixedLocator([70])
+    return m
+
+def _plot_basemap_chukchisea(axis=None):
+    """Plot basemap for Chukchi Sea
+
+    """
+    m = _plot_basemap_region(axis=axis, lon_min=180.0, lat_min=62.0, \
+                             lon_max=212.0, lat_max=75.0, \
+                             projection=ccrs.Orthographic(central_longitude=196.0,
+                                                          central_latitude=68.5), \
+                             xlocator=np.linspace(-180,-145,5), \
+                             ylocator=np.linspace(62,76,2))
     # workaround to turn off all the right and top labels
     gl = m.gridlines(draw_labels=False)
     gl.xlocator = mticker.FixedLocator([-20, -10])
