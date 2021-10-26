@@ -144,7 +144,7 @@ def _plot_basemap_chukchisea(axis=None):
                              projection=ccrs.Orthographic(central_longitude=196.0,
                                                           central_latitude=68.5), \
                              xlocator=np.arange(-180, -149, 5), \
-                             ylocator=np.arange(62,76,2))
+                             ylocator=np.arange(64,73,2))
     # workaround to turn off all the right and top labels
     gl = m.gridlines(draw_labels=False)
     gl.xlocator = mticker.FixedLocator([-20, -10])
@@ -155,12 +155,12 @@ def _plot_basemap_chukchisea_small(axis=None):
     """Plot basemap for smaller Chukchi Sea region 
 
     """
-    m = _plot_basemap_region(axis=axis, lon_min=180.0, lat_min=65.0, \
-                             lon_max=207.0, lat_max=73.5, \
+    m = _plot_basemap_region(axis=axis, lon_min=181.0, lat_min=65.0, \
+                             lon_max=203.0, lat_max=73.5, \
                              projection=ccrs.Orthographic(central_longitude=191.0,
                                                           central_latitude=68.5), \
-                             xlocator=np.arange(-180, -149, 5), \
-                             ylocator=np.arange(65,76,1))
+                             xlocator=np.arange(-175, -159, 5), \
+                             ylocator=np.arange(66,73,2))
     # workaround to turn off all the right and top labels
     gl = m.gridlines(draw_labels=False)
     gl.xlocator = mticker.FixedLocator([-20, -10])
